@@ -1,5 +1,9 @@
 # CreateDNSRecordsCloudFlare
-A small script that automatically creates dns records on cloudflare
+A small script that automatically creates dns records on cloudflare.
+
+## Introduction
+
+This script will help you to deploy automatically dns records if they do not exist.
 
 ### Prerequisites
 
