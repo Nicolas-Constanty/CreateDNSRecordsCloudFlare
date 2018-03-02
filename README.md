@@ -50,9 +50,10 @@ $
 ### Create your record file
 
 A Record's file is a simple text file where each line as 3 informations :
-| Type                                            | Name          | Content        |
-| ----------------------------------------------- |:-------------:| --------------:|
-| A, AAAA, CNAME, TXT, SRV, LOC, MX, NS, SPF      | "example.com" | "127.0.0.1"    |
+
+| Type | Name | Content        |
+| ----------------------------------------------- |:-------------:| --------------|
+| A, AAAA, CNAME, TXT, SRV, LOC, MX, NS, SPF | "example.com" | "127.0.0.1" |
 cf [Cloudflare API](https://api.cloudflare.com/#dns-records-for-a-zone-create-dns-record)
 
 exemple_records.txt
