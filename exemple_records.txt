@@ -1,0 +1,3 @@
+A mydomain.io 127.0.0.1
+A api.mydomain.io 127.0.0.1
+A s3.mydomain.io 127.0.0.1
