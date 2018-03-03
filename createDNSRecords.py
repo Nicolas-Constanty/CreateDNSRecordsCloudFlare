@@ -45,11 +45,13 @@ def getDNSRecordsFromFiles(input_file):
     with open(input_file) as f:
         lines = f.readlines()
         for line in lines:
+            if line[0] == '#':
+                continue
             tmp = line.split(' ')
             records.append({
                 'type': tmp[0],
                 'name': tmp[1],
-                'content': tmp[2]
+                'content': tmp[2].replace('\n','')
             })
     return records
 
@@ -67,7 +69,7 @@ def createMissingDNSRecords(local_list, cf_list, cf, zone_id):
             print('Creating ', dns['name'], ' on CloudFlare...')
             cf.zones.dns_records.post(zone_id, data=dns)
             print(dns['name'], ' successfully created!')
-    
+
 def main(argv):
     if (os.environ['CF_API_EMAIL'] == ""):
         print("Setup CF_API_EMAIL before run")
