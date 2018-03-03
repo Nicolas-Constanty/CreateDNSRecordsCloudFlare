@@ -3,6 +3,7 @@
 import json
 import CloudFlare
 import sys, getopt
+import os
 
 def connectCloudFlare():
     return CloudFlare.CloudFlare()
@@ -36,7 +37,7 @@ def getDNSRecordsFromCF(cf, zone_name, zone_id):
         exit('/zones/dns_records.get %d %s - api call failed' % (e, e))
     print('DNS ZONE :')
     print (zone_id, zone_name)
-    display(dns_records)
+    displayDNSRecordsCF(dns_records)
     return dns_records
 
 def getDNSRecordsFromFiles(input_file):
@@ -68,6 +69,15 @@ def createMissingDNSRecords(local_list, cf_list, cf, zone_id):
             print(dns['name'], ' successfully created!')
     
 def main(argv):
+    if (os.environ['CF_API_EMAIL'] == ""):
+        print("Setup CF_API_EMAIL before run")
+        sys.exit()
+    if (os.environ['CF_API_KEY'] == ""):
+        print("Setup CF_API_KEY before run")
+        sys.exit()
+    if (os.environ['CF_API_CERTKEY'] == ""):
+        print("Setup CF_API_CERTKEY before run")
+        sys.exit()
     inputfile = ''
     domaine = ''
     try:
