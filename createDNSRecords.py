@@ -36,7 +36,7 @@ def getDNSRecordsFromCF(cf, zone_name, zone_id):
         exit('/zones/dns_records.get %d %s - api call failed' % (e, e))
     print('DNS ZONE :')
     print (zone_id, zone_name)
-    display(dns_records)
+    displayDNSRecordsCF(dns_records)
     return dns_records
 
 def getDNSRecordsFromFiles(input_file):
